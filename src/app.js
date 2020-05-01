@@ -6,7 +6,7 @@ Vue.use(VueClipboard);
 
 var styles = [
   'https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css',
-  'https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css',
+  'https://cdn.jsdelivr.net/gh/CreativeBulma/bulma-tooltip/dist/bulma-tooltip.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css',
   'https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css',
   'https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.css'
@@ -63,7 +63,6 @@ document.write(
     }
     
     .table td {
-      overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       vertical-align: middle;
@@ -102,6 +101,9 @@ document.write(
       left: 0;
       width: 100%;
       height: 100%;
+    }
+    .td span {
+      position: absolute;
     }
   </style>`
 );

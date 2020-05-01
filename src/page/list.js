@@ -152,10 +152,8 @@ var list = Vue.component("list", {
     },
     doCopy: function (s) {
       this.$copyText(s).then(function (e) {
-        alert('Copied');
         console.log(e);
       }, function (e) {
-        alert('Can not copy');
         console.log(e);
       })
     },
@@ -178,24 +176,24 @@ var list = Vue.component("list", {
           <tbody>
           <tr v-for="file in files">
               <td @click="go(file)">
-                <svg class="iconfont" aria-hidden="true">
-                    <use :xlink:href="getIcon(file.mimeType)"></use>
-                </svg>
                 <a :href=replace(file.path) onclick="return false" style="color:inherit">
+                  <svg class="iconfont" aria-hidden="true">
+                    <use :xlink:href="getIcon(file.mimeType)"></use>
+                  </svg>
                   {{file.name}}
                 </a>
               </td>
               <td class="is-hidden-mobile is-hidden-touch">{{file.modifiedTime}}</td>
               <td class="is-hidden-mobile is-hidden-touch">{{file.size}}</td>
               <td class="is-hidden-mobile is-hidden-touch" v-if="file.mimeType!=='application/vnd.google-apps.folder'">
-                <span class="icon" @click.stop="go(file,'_blank')">
-                  <i class="fa fa-external-link" title="Open a new tab" aria-hidden="true"></i> 
+                <span class="icon has-tooltip-arrow" @click.stop="go(file,'_blank')" data-tooltip="Open a new tab">
+                  <i class="fa fa-external-link" aria-hidden="true"></i> 
                 </span>
-                <span class="icon" @click.stop="go(file,'down')">
-                  <i class="fa fa-download" title="Download"></i>
+                <span class="icon" @click.stop="go(file,'down')" data-tooltip="Download">
+                  <i class="fa fa-download"></i>
                 </span>
-                <span class="icon" @click.stop="go(file,'copy')">
-                  <i class="fa fa-copy" title="Copy"></i>
+                <span class="icon" @click.stop="go(file,'copy')" data-tooltip="Copy">
+                  <i class="fa fa-copy"></i>
                 </span>
               </td>
           </tr>
