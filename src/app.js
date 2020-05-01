@@ -9,6 +9,7 @@ var styles = [
   'https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css',
   'https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css',
+  'https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.css'
 ]
 styles.forEach(item=>{
   document.write(`<link rel="stylesheet" href="${item}">`);
@@ -18,6 +19,7 @@ document.write(
   `<style>
     body {
       overflow: hidden;
+      mdui-theme-primary: blue
     }
     
     .section {

@@ -9,6 +9,7 @@ import gotext from "./text";
 import goimg from "./img";
 import gofooter from "../common/footer";
 import gocheck from "../common/check";
+import godownload from "../common/download"; 
 import { getQueryString, get_filex } from "../utils/AcrouUtil";
 
 var layout = Vue.component("layout", {
@@ -19,6 +20,7 @@ var layout = Vue.component("layout", {
       text: { file: {}, path: "" },
       headmd: { display: false, file: {}, path: "" },
       readmemd: { display: false, file: {}, path: "" },
+      url: "",
     };
   },
   components: {
@@ -32,7 +34,8 @@ var layout = Vue.component("layout", {
     gotext: gotext,
     goimg: goimg,
     gofooter: gofooter,
-    gocheck
+    gocheck,
+    godownload
   },
   methods: {
     render(config) {
@@ -65,6 +68,9 @@ var layout = Vue.component("layout", {
           this.show = "img";
           this.$refs.goimg.render(path);
         }
+
+        // 文件下载链接
+        this.url = window.location.href.replace("?a=view","");
       }
     },
     setHeadmd(val) {
@@ -91,6 +97,7 @@ var layout = Vue.component("layout", {
         </div>
       </section>
       <gocheck></gocheck>
+      <godownload :url=url></godownload>
     </div>
   `,
 });

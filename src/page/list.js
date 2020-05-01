@@ -130,6 +130,10 @@ var list = Vue.component("list", {
     },
     go (file, target = "view") {
       let path = file.path
+      if (target === 'copy') {
+        this.doCopy(window.location.href + file.name);
+        return
+      } 
       if(path.match("/[0-9]+:search/")){
         this.$refs.goSearchResult.go(file, target)
         return
@@ -139,8 +143,6 @@ var list = Vue.component("list", {
       }
       if(target === '_blank'){
         window.open(path)
-      } else if (target === 'copy') {
-        this.doCopy(window.location.href + file.name);
       } else {
         location.href = path;
       }
@@ -156,6 +158,9 @@ var list = Vue.component("list", {
         alert('Can not copy');
         console.log(e);
       })
+    },
+    replace: function (value) {
+      return value.replace('?a=view', '');
     }
   },
   components: {
@@ -176,7 +181,9 @@ var list = Vue.component("list", {
                 <svg class="iconfont" aria-hidden="true">
                     <use :xlink:href="getIcon(file.mimeType)"></use>
                 </svg>
-                {{file.name}}
+                <a :href=replace(file.path) onclick="return false" style="color:inherit">
+                  {{file.name}}
+                </a>
               </td>
               <td class="is-hidden-mobile is-hidden-touch">{{file.modifiedTime}}</td>
               <td class="is-hidden-mobile is-hidden-touch">{{file.size}}</td>
