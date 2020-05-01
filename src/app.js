@@ -1,5 +1,8 @@
 import Vue from "vue";
+import VueClipboard from 'vue-clipboard2'
 import layout from "./page/layout";
+
+Vue.use(VueClipboard);
 
 var styles = [
   'https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css',
