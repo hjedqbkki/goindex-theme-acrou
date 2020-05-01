@@ -26,7 +26,7 @@ var list = Vue.component("list", {
         },
         {
           name: "操作",
-          style: "width:10%",
+          style: "width:12%",
           class: "is-hidden-mobile is-hidden-touch",
         },
       ],
@@ -139,13 +139,24 @@ var list = Vue.component("list", {
       }
       if(target === '_blank'){
         window.open(path)
-      }else{
+      } else if (target === 'copy') {
+        this.doCopy(window.location.href + file.name);
+      } else {
         location.href = path;
       }
     },
     getIcon (type) {
       return "#" + (this.icon[type] ? this.icon[type] : "icon-weizhi");
     },
+    doCopy: function (s) {
+      this.$copyText(s).then(function (e) {
+        alert('Copied');
+        console.log(e);
+      }, function (e) {
+        alert('Can not copy');
+        console.log(e);
+      })
+    }
   },
   components: {
     SearchModel
@@ -175,6 +186,9 @@ var list = Vue.component("list", {
                 </span>
                 <span class="icon" @click.stop="go(file,'down')">
                   <i class="fa fa-download" title="Download"></i>
+                </span>
+                <span class="icon" @click.stop="go(file,'copy')">
+                  <i class="fa fa-copy" title="Copy"></i>
                 </span>
               </td>
           </tr>
