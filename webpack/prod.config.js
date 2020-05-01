@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const resolve = dir => path.resolve(__dirname, "..", dir);
+const resolve = (dir) => path.resolve(__dirname, "..", dir);
 
 module.exports = {
   entry: {
@@ -18,7 +18,7 @@ module.exports = {
   resolve: {
     alias: {
       vue: "vue/dist/vue.esm.js",
-      '@': resolve('src')
+      "@": resolve("src"),
     },
   },
   plugins: [
@@ -28,7 +28,10 @@ module.exports = {
   plugins: [
     // ...
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
-  ]
+      "process.env": {
+        NODE_ENV: '"production"',
+      },
+      "process.env.NODE_ENV": JSON.stringify("production"),
+    }),
+  ],
 };
