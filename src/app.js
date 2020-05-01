@@ -104,17 +104,6 @@ document.write(
   </style>`
 );
 
-document.write(`
-  <script>
-      var _hmt = _hmt || [];
-      (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?6be1011f95a1bfcdb2179fe2ae6e58fe";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-      })();
-  </script>
-`);
 document.write('<div id="app"></div>');
 
 var app = new Vue({
