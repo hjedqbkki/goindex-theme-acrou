@@ -25,4 +25,10 @@ module.exports = {
     new HtmlWebpackPlugin({ template: "./src/index.html", inject: "head" }),
   ],
   mode: "production",
+  plugins: [
+    // ...
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
+  ]
 };
