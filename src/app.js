@@ -102,9 +102,6 @@ document.write(
       width: 100%;
       height: 100%;
     }
-    .td span {
-      position: absolute;
-    }
   </style>`
 );
 

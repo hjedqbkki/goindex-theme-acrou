@@ -186,7 +186,7 @@ var list = Vue.component("list", {
               <td class="is-hidden-mobile is-hidden-touch">{{file.modifiedTime}}</td>
               <td class="is-hidden-mobile is-hidden-touch">{{file.size}}</td>
               <td class="is-hidden-mobile is-hidden-touch" v-if="file.mimeType!=='application/vnd.google-apps.folder'">
-                <span class="icon has-tooltip-arrow" @click.stop="go(file,'_blank')" data-tooltip="Open a new tab">
+                <span class="icon" @click.stop="go(file,'_blank')" data-tooltip="Open a new tab">
                   <i class="fa fa-external-link" aria-hidden="true"></i> 
                 </span>
                 <span class="icon" @click.stop="go(file,'down')" data-tooltip="Download">
